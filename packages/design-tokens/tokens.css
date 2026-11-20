@@ -1,0 +1,81 @@
+/* Pockiva design tokens — shared by all apps.
+   Import this file; never hard-code a colour in a component. */
+
+:root {
+  /* Colours — light mode */
+  --color-primary:      #0B2650;
+  --color-primary-2:    #12356B;
+  --color-accent:       #C79A45;
+  --color-bg:           #F4F6FA;
+  --color-surface:      #FFFFFF;
+  --color-text:         #16213A;
+  --color-text-muted:   #6B7690;
+  --color-border:       #E3E8F0;
+  --color-success:      #2E9E6B;
+  --color-warning:      #E08A1E;
+  --color-danger:       #D64545;
+  --color-info:         #2F6FED;
+
+  /* Spacing (4 px grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Radii */
+  --radius-tag:   12px;
+  --radius-card:  16px;
+  --radius-sheet: 24px;
+
+  /* Typography */
+  --font-family: "Inter", system-ui, sans-serif;
+  --font-size-xs:  12px;
+  --font-size-sm:  14px;
+  --font-size-md:  16px;
+  --font-size-lg:  20px;
+  --font-size-xl:  28px;
+  --font-size-2xl: 36px;
+
+  /* Shadows */
+  --shadow-card: 0 1px 4px rgba(11, 38, 80, 0.08);
+
+  /* Motion */
+  --duration-fast:   150ms;
+  --duration-normal: 250ms;
+  --easing:          ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primary:    #5B8DEF;
+    --color-primary-2:  #3C6FD1;
+    --color-accent:     #D9AE5C;
+    --color-bg:         #0E1626;
+    --color-surface:    #172238;
+    --color-text:       #EAF0FA;
+    --color-text-muted: #93A0B8;
+    --color-border:     #26324A;
+    --color-success:    #4CC38A;
+    --color-warning:    #F0A64B;
+    --color-danger:     #E56B6B;
+    --color-info:       #5B8DEF;
+  }
+}
+
+/* Envelope palette (12 user-pickable colours) */
+:root {
+  --env-blue:   #2F6FED;
+  --env-indigo: #5B5BD6;
+  --env-violet: #7C4DDB;
+  --env-pink:   #D6457F;
+  --env-orange: #E4572E;
+  --env-amber:  #E08A1E;
+  --env-lime:   #7BA428;
+  --env-green:  #2E9E6B;
+  --env-teal:   #0F9FB5;
+  --env-brown:  #8D6E4F;
+  --env-slate:  #5B6B86;
+  --env-gold:   #C79A45;
+}

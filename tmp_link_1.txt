@@ -1,0 +1,16 @@
+color-accent-ink);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.mob-guide-card__link {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  background: none;
+  border: 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+  cursor: pointer;
+  text-decoration:

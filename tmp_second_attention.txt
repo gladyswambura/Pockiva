@@ -1,0 +1,40 @@
+ds attention */
+.mob-attention { margin: 0 18px 14px; }
+.mob-attention__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mob-attention__title { font-size: 17px; font-weight: 800; color: #182640; }
+.mob-attention__see-all {
+  background: none; border: none; color: #3478FF;
+  font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
+}
+.mob-attention__card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; background: #fff;
+  border-radius: 16px; box-shadow: 0 1px 6px rgba(0,0,0,.07);
+  margin-bottom: 8px;
+}
+.mob-attention__icon {
+  width: 42px; height: 42px; border-radius: 13px;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.mob-attention__icon--loan { background: #FEE2E2; color: #B92B27; }
+.mob-attention__icon--goal { background: #EDE9FE; color: #7C3AED; }
+.mob-attention__icon--low  { background: #FEF3C7; color: #B45309; }
+.mob-attention__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mob-attention__body strong { font-size: 14px; font-weight: 700; color: #182640; }
+.mob-attention__body span  { font-size: 12px; color: #7C8AA6; }
+.mob-attention__amount { font-size: 15px; font-weight: 800; color: #182640; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+/* Guide card */
+.mob-guide-card {
+  margin: 0 18px 14px;
+  background: #fff; border-radius: 16px;
+  padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,.07);
+}
+.mob-guide-card__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mob-guide-card__title { font-size: 16px; font-weight: 800; color: #182640; }

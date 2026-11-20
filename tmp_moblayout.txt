@@ -1,0 +1,94 @@
+.mob-layout { display: flex; flex-direction: column; background: #F4F6FA; min-height: 100%; }
+@media (min-width: 768px) { .mob-layout { display: none; } }
+
+.wide-layout { display: none; }
+@media (min-width: 768px) { .wide-layout { display: block; } }
+
+/* Mobile header */
+.mob-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px 12px;
+}
+.mob-header__greet { display: flex; flex-direction: column; gap: 2px; }
+.mob-header__sub { font-size: 13px; color: #7C8AA6; font-weight: 500; }
+.mob-header__name { font-size: 22px; font-weight: 800; color: #182640; letter-spacing: -.03em; }
+.mob-header__actions { display: flex; gap: 10px; align-items: center; }
+
+/* Notification / avatar buttons */
+.mob-icon-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: #fff; color: #182640;
+  display: grid; place-items: center; cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,.10); flex-shrink: 0;
+}
+.mob-avatar {
+  width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: #102D56; color: #fff;
+  font-size: 16px; font-weight: 800;
+  cursor: pointer; flex-shrink: 0;
+  display: grid; place-items: center;
+}
+
+/* Navy main balance card */
+.mob-balance-card {
+  margin: 0 18px 14px;
+  padding: 20px 18px 16px;
+  border-radius: 20px;
+  background: #102D56;
+  color: #fff;
+  min-height: 168px;
+  display: flex; flex-direction: column;
+}
+.mob-balance-card__label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  opacity: .75; text-transform: uppercase;
+}
+.mob-balance-card__value {
+  font-size: 40px; font-weight: 800; margin-top: 6px;
+  font-variant-numeric: tabular-nums; line-height: 1.1;
+}
+.mob-balance-card__hint { font-size: 12px; opacity: .7; margin-top: 4px; }
+.mob-balance-card__tiles {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-top: auto; padding-top: 16px;
+}
+.mob-balance-tile {
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.mob-balance-tile__label {
+  font-size: 10px; font-weight: 600; opacity: .8;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.mob-balance-tile__value {
+  font-size: 13px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cheer banner */
+.mob-cheer {
+  margin: 0 18px 14px;
+  padding: 12px 14px;
+  border: 1px solid #F0DDB0;
+  border-radius: 13px;
+  background: #FFF4E1;
+  color: #6B4A12;
+  font-size: 13px; line-height: 1.5;
+}
+
+/* Needs attention */
+.mob-attention { margin: 0 18px 14px; }
+.mob-attention__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mob-attention__title { font-size: 17px; font-weight: 800; color: #182640; }
+.mob-attention__see-all {
+  background: none; border: none; color: #3478FF;
+  font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
+}
+.mob-attention__card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; backgroun

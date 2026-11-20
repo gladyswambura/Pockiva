@@ -1,0 +1,81 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: pockiva
+      POSTGRES_USER: pockiva
+      POSTGRES_PASSWORD: pockiva_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pockiva"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build:
+      context: ../apps/api
+      dockerfile: Dockerfile
+    env_file: ../apps/api/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pockiva:pockiva_dev@db:5432/pockiva
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../apps/api:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  worker:
+    build:
+      context: ../apps/api
+      dockerfile: Dockerfile
+    env_file: ../apps/api/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pockiva:pockiva_dev@db:5432/pockiva
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ../apps/api:/app
+    command: celery -A app.core.celery_app worker --loglevel=info
+
+  beat:
+    build:
+      context: ../apps/api
+      dockerfile: Dockerfile
+    env_file: ../apps/api/.env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pockiva:pockiva_dev@db:5432/pockiva
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+    volumes:
+      - ../apps/api:/app
+    command: celery -A app.core.celery_app beat --loglevel=info
+
+volumes:
+  pgdata:

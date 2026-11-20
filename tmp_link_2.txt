@@ -1,0 +1,11 @@
+0A03F; color: #182640;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+}
+.mob-guide-card__link {
+  display: block; width: 100%; margin-top: 8px;
+  background: none; border: 0; font-size: 13px;
+  color: #7C8AA6; text-align: center; cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Section he

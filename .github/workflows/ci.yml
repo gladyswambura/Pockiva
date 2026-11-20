@@ -1,0 +1,103 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  api:
+    name: API — lint, type-check, test
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_DB: pockiva_test
+          POSTGRES_USER: pockiva
+          POSTGRES_PASSWORD: pockiva_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+    defaults:
+      run:
+        working-directory: apps/api
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Lint (ruff)
+        run: ruff check .
+
+      - name: Type-check (mypy)
+        run: mypy app
+
+      - name: Security scan (bandit)
+        run: bandit -r app -ll
+
+      - name: Dependency audit (pip-audit)
+        run: pip-audit
+
+      - name: Run tests
+        env:
+          DATABASE_URL: postgresql+asyncpg://pockiva:pockiva_test@localhost:5432/pockiva_test
+          REDIS_URL: redis://localhost:6379/0
+          JWT_SECRET: ci-test-secret
+          AT_API_KEY: ""
+          VAPID_PRIVATE_KEY: ""
+          VAPID_PUBLIC_KEY: ""
+        run: pytest --cov=app --cov-report=term-missing -q
+
+      - name: Celery worker smoke test
+        env:
+          DATABASE_URL: postgresql+asyncpg://pockiva:pockiva_test@localhost:5432/pockiva_test
+          REDIS_URL: redis://localhost:6379/0
+          JWT_SECRET: ci-test-secret
+        run: celery -A app.core.celery_app inspect registered --timeout 5 || true
+
+  web:
+    name: Web — lint and type-check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check
+        run: npm run type-check
+
+      - name: Lint
+        run: npm run lint

@@ -1,0 +1,14 @@
+mob-guide-card__btn {
+  width: 100%;
+  height: 46px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Mobile e

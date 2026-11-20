@@ -1,0 +1,35 @@
+
+.mob-attention__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mob-attention__title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+.mob-attention__see-all {
+  background: none; border: none;
+  color: var(--color-info);
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; padding: 4px;
+}
+.mob-attention__card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--color-surface);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 8px;
+}
+.mob-attention__icon {
+  width: 42px; height: 42px;
+  border-radius: 13px;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.mob-attention__icon--loan { background: var(--color-danger-soft); color: va

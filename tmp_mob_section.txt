@@ -1,0 +1,232 @@
+.mob-layout { display: flex; flex-direction: column; background: #F4F6FA; min-height: 100%; }
+@media (min-width: 768px) { .mob-layout { display: none; } }
+
+.wide-layout { display: none; }
+@media (min-width: 768px) { .wide-layout { display: block; } }
+
+/* Mobile header */
+.mob-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 18px 12px;
+}
+.mob-header__greet { display: flex; flex-direction: column; gap: 2px; }
+.mob-header__sub { font-size: 13px; color: #7C8AA6; font-weight: 500; }
+.mob-header__name { font-size: 22px; font-weight: 800; color: #182640; letter-spacing: -.03em; }
+.mob-header__actions { display: flex; gap: 10px; align-items: center; }
+
+/* Notification / avatar buttons */
+.mob-icon-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: #fff; color: #182640;
+  display: grid; place-items: center; cursor: pointer;
+  box-shadow: 0 1px 6px rgba(0,0,0,.10); flex-shrink: 0;
+}
+.mob-avatar {
+  width: 40px; height: 40px; border-radius: 50%; border: 0;
+  background: #102D56; color: #fff;
+  font-size: 16px; font-weight: 800;
+  cursor: pointer; flex-shrink: 0;
+  display: grid; place-items: center;
+}
+
+/* Navy main balance card */
+.mob-balance-card {
+  margin: 0 18px 14px;
+  padding: 20px 18px 16px;
+  border-radius: 20px;
+  background: #102D56;
+  color: #fff;
+  min-height: 168px;
+  display: flex; flex-direction: column;
+}
+.mob-balance-card__label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  opacity: .75; text-transform: uppercase;
+}
+.mob-balance-card__value {
+  font-size: 40px; font-weight: 800; margin-top: 6px;
+  font-variant-numeric: tabular-nums; line-height: 1.1;
+}
+.mob-balance-card__hint { font-size: 12px; opacity: .7; margin-top: 4px; }
+.mob-balance-card__tiles {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-top: auto; padding-top: 16px;
+}
+.mob-balance-tile {
+  padding: 10px 10px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.mob-balance-tile__label {
+  font-size: 10px; font-weight: 600; opacity: .8;
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.mob-balance-tile__value {
+  font-size: 13px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Cheer banner */
+.mob-cheer {
+  margin: 0 18px 14px;
+  padding: 12px 14px;
+  border: 1px solid #F0DDB0;
+  border-radius: 13px;
+  background: #FFF4E1;
+  color: #6B4A12;
+  font-size: 13px; line-height: 1.5;
+}
+
+/* Needs attention */
+.mob-attention { margin: 0 18px 14px; }
+.mob-attention__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.mob-attention__title { font-size: 17px; font-weight: 800; color: #182640; }
+.mob-attention__see-all {
+  background: none; border: none; color: #3478FF;
+  font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
+}
+.mob-attention__card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; background: #fff;
+  border-radius: 16px; box-shadow: 0 1px 6px rgba(0,0,0,.07);
+  margin-bottom: 8px;
+}
+.mob-attention__icon {
+  width: 42px; height: 42px; border-radius: 13px;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.mob-attention__icon--loan { background: #FEE2E2; color: #B92B27; }
+.mob-attention__icon--goal { background: #EDE9FE; color: #7C3AED; }
+.mob-attention__icon--low  { background: #FEF3C7; color: #B45309; }
+.mob-attention__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.mob-attention__body strong { font-size: 14px; font-weight: 700; color: #182640; }
+.mob-attention__body span  { font-size: 12px; color: #7C8AA6; }
+.mob-attention__amount { font-size: 15px; font-weight: 800; color: #182640; font-variant-numeric: tabular-nums; flex-shrink: 0; }
+
+/* Guide card */
+.mob-guide-card {
+  margin: 0 18px 14px;
+  background: #fff; border-radius: 16px;
+  padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,.07);
+}
+.mob-guide-card__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.mob-guide-card__title { font-size: 16px; font-weight: 800; color: #182640; }
+.mob-guide-card__pill {
+  font-size: 12px; font-weight: 700; padding: 3px 10px;
+  border-radius: 999px; background: #EDF1F7; color: #7C8AA6;
+}
+.mob-guide-card__steps { display: flex; flex-direction: column; gap: 0; }
+.mob-guide-step {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid #EDF1F7;
+}
+.mob-guide-step:last-child { border-bottom: 0; }
+.mob-guide-step__badge {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 13px; font-weight: 800; flex-shrink: 0;
+  background: #EDF1F7; color: #A8B2C4;
+}
+.mob-guide-step__badge--active { background: #D0A03F; color: #182640; }
+.mob-guide-step__badge--done   { background: #2FA66A; color: #fff; }
+.mob-guide-step__body { flex: 1; min-width: 0; }
+.mob-guide-step__title { font-size: 14px; font-weight: 700; color: #182640; }
+.mob-guide-step__title--muted { color: #A8B2C4; }
+.mob-guide-step__desc { font-size: 12px; color: #7C8AA6; margin-top: 1px; }
+.mob-guide-step__lock { color: #A8B2C4; flex-shrink: 0; }
+.mob-guide-card__btn {
+  width: 100%; height: 46px; margin-top: 14px;
+  border: 0; border-radius: 12px;
+  background: #D0A03F; color: #182640;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+}
+
+/* Section header (envelopes heading row) */
+.mob-section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 18px; margin-bottom: 10px;
+}
+.mob-section-header__title { font-size: 17px; font-weight: 800; color: #182640; }
+.mob-section-header__link {
+  background: none; border: none; color: #3478FF;
+  font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
+}
+
+/* S24 empty envelope card */
+.mob-empty-card {
+  margin: 0 18px 14px;
+  background: #fff;
+  border: 2px dashed #C5D0E6;
+  border-radius: 16px;
+  padding: 28px 20px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center;
+}
+.mob-empty-card__icon-tile {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: #FFF4E1; font-size: 26px;
+  display: grid; place-items: center;
+}
+.mob-empty-card__heading { font-size: 18px; font-weight: 800; color: #182640; margin: 0; }
+.mob-empty-card__sub { font-size: 13px; color: #7C8AA6; margin: 0; line-height: 1.5; }
+.mob-empty-card__btn {
+  width: 100%; height: 46px; border: 0; border-radius: 12px;
+  background: #D0A03F; color: #182640;
+  font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 4px;
+}
+.mob-empty-card__link {
+  background: none; border: none; color: #3478FF;
+  font-size: 13px; font-weight: 600; cursor: pointer; padding: 4px;
+}
+
+/* Envelope list (S23 waiting / S06v2 active) */
+.mob-env-list {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 0 18px;
+}
+.mob-env-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 14px 14px 12px;
+  background: #fff; border-radius: 15px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.07);
+  border-left: 5px solid;
+  border-top: 0; border-right: 0; border-bottom: 0;
+  cursor: pointer; text-align: left; width: 100%;
+  min-height: 98px;
+}
+.mob-env-row__main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.mob-env-row__name { font-size: 15px; font-weight: 700; color: #182640; }
+.mob-env-row__plan { font-size: 12px; color: #7C8AA6; }
+.mob-env-row__progress {
+  height: 4px; border-radius: 2px; background: #EDF1F7;
+  overflow: hidden; margin-top: 2px;
+}
+.mob-env-row__progress-fill { height: 100%; border-radius: 2px; transition: width .3s; }
+.mob-env-row__tag {
+  display: inline-flex; align-items: center;
+  padding: 2px 8px; border-radius: 8px;
+  font-size: 11px; font-weight: 600;
+  background: #E0F2FE; color: #7C8AA6;
+  align-self: flex-start; margin-top: 2px;
+}
+.mob-env-row__amount {
+  font-size: 18px; font-weight: 800; color: #182640;
+  font-variant-numeric: tabular-nums; flex-shrink: 0;
+}
+
+
+/* â”€â”€ Override: neutralise old mobile home rules from previous sessions â”€â”€ */
+/* home-mobile-header and home-mobile-balance no longer exist in JSX       */
+.home-mobile-header { display: none !important; }
+.home-mobile-balance { display: none !important; }
+
+/* home-root: on mobile, remove padding/margin so mob-layout fills it */
+@media (max-width: 767px) {
+  
